@@ -28,3 +28,9 @@ ingress:
     - host: chart-example.local
       paths: []
   tls: []
+
+autoscaling:
+  enabled: false  # 기본값을 false로 설정
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
