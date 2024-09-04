@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "app-test.fullname" . }}
+  labels:
+    app: {{ include "app-test.name" . }}
+    chart: {{ include "app-test.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "app-test.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "app-test.name" . }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "nginx:latest"
+          ports:
+            - containerPort: 80
