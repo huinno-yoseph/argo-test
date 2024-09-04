@@ -20,3 +20,11 @@ affinity: {}
 serviceAccount:
   create: true
   name: ""
+
+ingress:
+  enabled: false  # 기본값은 false로 설정
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths: []
+  tls: []
