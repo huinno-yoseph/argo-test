@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "app-test.fullname" . }}
+  annotations:
+    notifications.argoproj.io/subscribe.on-deployed: "build-acceptance-test"
   labels:
     app: {{ include "app-test.name" . }}
     chart: {{ include "app-test.chart" . }}
