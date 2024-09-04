@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: {{ include "app-test.fullname" . }}
   annotations:
-    notifications.argoproj.io/subscribe/on-deployed.build-acceptance-test: ""
+    notifications.argoproj.io/subscribe.on-deployed: "build-acceptance-test"
   labels:
     app: {{ include "app-test.name" . }}
 spec:
