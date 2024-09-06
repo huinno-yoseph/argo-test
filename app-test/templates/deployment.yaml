@@ -7,6 +7,9 @@ metadata:
     chart: {{ include "app-test.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
+  annotations:
+    notifications.argoproj.io/subscribe.sync-operation-change.slack: 02-memo-care-deployment
+    notifications.argoproj.io/subscribe.on-deployed.build-acceptance-test: ""
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
